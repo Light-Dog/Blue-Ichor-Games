@@ -4,10 +4,13 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
+    public AudioSource coinAudio;
     public float walkSpeed = 20f;
     public float jumpSpeed = 25f;
+    
 
     Rigidbody rb;
+    
 
     bool jumping = false;
 
@@ -23,6 +26,17 @@ public class PlayerController : MonoBehaviour
         walker();
 
         jumper();
+    }
+
+    void OnTriggerEnter(Collider collider)
+    {
+        if(collider.gameObject.tag == "Coin")
+        {
+            print("Grabbing Coin...");
+            coinAudio.Play();
+
+            Destroy(collider.gameObject);
+        }
     }
 
     void walker()

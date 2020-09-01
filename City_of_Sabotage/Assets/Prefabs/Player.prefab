@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 4922453214732435540}
   - component: {fileID: 8883169144314132035}
   - component: {fileID: -9027325091490492744}
-  - component: {fileID: -3151669983503114539}
+  - component: {fileID: 6478575009183904372}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -91,7 +91,7 @@ BoxCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6662536986177853376}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: 28a8af72031e4e74e844149d08d19a62, type: 2}
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
@@ -113,7 +113,7 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 0
---- !u!114 &-3151669983503114539
+--- !u!114 &6478575009183904372
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -125,5 +125,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2b7eb5a73ad95594e961e666092603e3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  walkSpeed: -20
+  coinAudio: {fileID: 0}
+  walkSpeed: 20
   jumpSpeed: 25
