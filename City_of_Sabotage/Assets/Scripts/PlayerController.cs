@@ -35,6 +35,8 @@ public class PlayerController : MonoBehaviour
             print("Grabbing Coin...");
             coinAudio.Play();
 
+            GameManager.instance.scoreIncrease(1);
+
             Destroy(collider.gameObject);
         }
     }
