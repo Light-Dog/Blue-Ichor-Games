@@ -5,19 +5,20 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     public AudioSource coinAudio;
+    public HudManager hud;
+
     public float walkSpeed = 20f;
     public float jumpSpeed = 25f;
-    
 
     Rigidbody rb;
     
-
     bool jumping = false;
 
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody>();
+        hud.Refresh();
     }
 
     // Update is called once per frame
@@ -35,6 +36,7 @@ public class PlayerController : MonoBehaviour
             coinAudio.Play();
 
             GameManager.instance.ScoreIncrease(1);
+            hud.Refresh();
 
             Destroy(collider.gameObject);
         }
