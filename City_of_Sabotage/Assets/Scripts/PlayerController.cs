@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
@@ -43,6 +44,7 @@ public class PlayerController : MonoBehaviour
         else if(collider.gameObject.tag == "Enemy")
         {
             print("GAME OVER");
+            SceneManager.LoadScene("GameOver");
         }
         else if(collider.gameObject.tag == "Goal")
         {
