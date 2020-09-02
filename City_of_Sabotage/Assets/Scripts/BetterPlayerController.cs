@@ -2,36 +2,36 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerController2 : MonoBehaviour
+public class BetterPlayerController : MonoBehaviour
 {
     public float moveSpeed;
     public float jumpForce;
+    public float gravityScale;
 
-    public Rigidbody rb;
+    public CharacterController controller;
+
+    Vector3 direction;
 
     // Start is called before the first frame update
     void Start()
     {
-        rb = GetComponent<Rigidbody>();
+        controller = GetComponent<CharacterController>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        Mover();
-    }
-
-    void Mover()
-    {
         float xSpeed = Input.GetAxis("Horizontal") * moveSpeed;// * Time.deltaTime;
         float zSpeed = Input.GetAxis("Vertical") * moveSpeed;// * Time.deltaTime;
 
-        rb.velocity = new Vector3(xSpeed, rb.velocity.y, zSpeed);
+        direction = new Vector3(xSpeed, 0.0f, zSpeed);
 
         if (Input.GetButtonDown("Jump"))
         {
-            rb.velocity = new Vector3(xSpeed, jumpForce, zSpeed);
+            direction.y = jumpForce;
         }
-    }
 
+        direction.y = direction.y + (Physics.gravity.y * gravityScale);
+        controller.Move(direction * Time.deltaTime);
+    }
 }
