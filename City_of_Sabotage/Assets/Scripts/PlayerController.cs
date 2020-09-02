@@ -23,9 +23,8 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        walker();
-
-        jumper();
+        Walker();
+        Jumper();
     }
 
     void OnTriggerEnter(Collider collider)
@@ -35,13 +34,21 @@ public class PlayerController : MonoBehaviour
             print("Grabbing Coin...");
             coinAudio.Play();
 
-            GameManager.instance.scoreIncrease(1);
+            GameManager.instance.ScoreIncrease(1);
 
             Destroy(collider.gameObject);
         }
+        else if(collider.gameObject.tag == "Enemy")
+        {
+            print("GAME OVER");
+        }
+        else if(collider.gameObject.tag == "Goal")
+        {
+            GameManager.instance.IncreaseLevel();
+        }
     }
 
-    void walker()
+    void Walker()
     {
         rb.velocity = new Vector3(0, rb.velocity.y, 0);
 
@@ -57,7 +64,7 @@ public class PlayerController : MonoBehaviour
         rb.MovePosition(newPosition);
     }
 
-    void jumper()
+    void Jumper()
     {
         float jumpAxis = Input.GetAxis("Jump");
 
