@@ -700,7 +700,10 @@ MonoBehaviour:
   pivot: {fileID: 1163902746}
   offset: {x: 0, y: 0, z: 0}
   useOffset: 0
+  invertYAxis: 0
   spinSpeed: 5
+  maxAngleView: 45
+  minAngleView: -45
 --- !u!1 &1163902745
 GameObject:
   m_ObjectHideFlags: 0
