@@ -610,6 +610,7 @@ GameObject:
   - component: {fileID: 805606303}
   - component: {fileID: 805606302}
   - component: {fileID: 805606301}
+  - component: {fileID: 805606304}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -675,13 +676,61 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 805606300}
-  m_LocalRotation: {x: 0.188423, y: 0.2185733, z: -0.043057777, w: 0.95648766}
-  m_LocalPosition: {x: -7.8, y: 7.4, z: -4.23}
+  m_LocalRotation: {x: 0.1446011, y: -0, z: -0, w: 0.98949003}
+  m_LocalPosition: {x: -0.68, y: 4.92, z: -6.99}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 1163902746}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 22.289, y: 25.744, z: 0}
+  m_LocalEulerAnglesHint: {x: 16.628, y: 0, z: 0}
+--- !u!114 &805606304
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 805606300}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9099abac2d66b6241a322933142914a0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  target: {fileID: 1217043508}
+  pivot: {fileID: 1163902746}
+  offset: {x: 0, y: 0, z: 0}
+  useOffset: 0
+  spinSpeed: 5
+--- !u!1 &1163902745
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1163902746}
+  m_Layer: 0
+  m_Name: Pivot
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1163902746
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1163902745}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 805606303}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1217043503
 GameObject:
   m_ObjectHideFlags: 0
@@ -697,7 +746,7 @@ GameObject:
   - component: {fileID: 1217043509}
   - component: {fileID: 1217043504}
   m_Layer: 0
-  m_Name: Capsule
+  m_Name: Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -792,7 +841,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1217043503}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1, z: 0}
+  m_LocalPosition: {x: -0.52, y: 1, z: -1.48}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -811,8 +860,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 10
-  jumpForce: 10
-  gravityScale: 2.5
+  jumpForce: 15
+  gravityScale: 5
   controller: {fileID: 0}
 --- !u!1 &1882163407
 GameObject:

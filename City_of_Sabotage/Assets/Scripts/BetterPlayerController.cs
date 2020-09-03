@@ -22,17 +22,23 @@ public class BetterPlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        float xSpeed = Input.GetAxis("Horizontal") * moveSpeed;// * Time.deltaTime;
-        float zSpeed = Input.GetAxis("Vertical") * moveSpeed;// * Time.deltaTime;
+        float yStore = direction.y;
 
-        direction = new Vector3(xSpeed, direction.y, zSpeed);
+        direction = ( (transform.forward * Input.GetAxisRaw("Vertical"))  + (transform.right * Input.GetAxisRaw("Horizontal")) );
+        direction = direction.normalized * moveSpeed;
 
-        if (Input.GetButtonDown("Jump") && controller.isGrounded)
+        direction.y = yStore;
+
+        if(controller.isGrounded)
         {
-            direction.y = jumpForce;
-            doubleJump = true;
+            direction.y = 0.0f;
+            if (Input.GetButtonDown("Jump"))
+            {
+                direction.y = jumpForce;
+                doubleJump = true;
+            }
         }
-        else if(Input.GetButtonDown("Jump") && doubleJump)
+        else if (Input.GetButtonDown("Jump") && doubleJump)
         {
             direction.y = jumpForce;
             doubleJump = false;
