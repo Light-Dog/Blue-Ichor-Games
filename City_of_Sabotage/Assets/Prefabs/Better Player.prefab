@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 8681756892511193522}
   m_Layer: 0
   m_Name: Better Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -114,6 +114,11 @@ MonoBehaviour:
   jumpForce: 15
   gravityScale: 5
   controller: {fileID: 0}
+  anim: {fileID: 0}
+  HorizontalAnimSmoothTime: 0.2
+  VerticalAnimTime: 0.2
+  StartAnimTime: 0.3
+  StopAnimTime: 0.15
 --- !u!143 &8681756892511193522
 CharacterController:
   m_ObjectHideFlags: 0
