@@ -52,9 +52,11 @@ public class ThirdPersonController : MonoBehaviour
         if(controller.isGrounded)
         {
             jump.y = -1.0f;
+            anim.SetTrigger("Grounded");
 
             if(Input.GetButtonDown("Jump"))
             {
+                anim.SetTrigger("IsJumping");
                 jump.y = jumpForce;
                 doubleJump = true;
             }
@@ -96,6 +98,7 @@ public class ThirdPersonController : MonoBehaviour
         }
 
         jump.y += (Physics.gravity.y * gravityScale * Time.deltaTime);
+
         controller.Move(jump * Time.deltaTime);
     }
 }
