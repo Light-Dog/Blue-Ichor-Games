@@ -9,24 +9,31 @@ public class ThirdPersonController : MonoBehaviour
     public float gravityScale;
     public float turnSmoother = .1f;
 
-    public CharacterController controller;
-    public Transform cam;
-
-    float turnVelocity;
-    bool doubleJump = false;
-    float y_value;
-    Vector3 direction;
-    Vector3 jump;
-
     //range of (0, 1.0f)
     public float HorizontalAnimSmoothTime = 0.2f;
     public float VerticalAnimTime = 0.2f;
     public float StartAnimTime = 0.3f;
     public float StopAnimTime = 0.15f;
+    Animator anim;
+    bool has_anim = false;
+
+    public CharacterController controller;
+    public Transform cam;
+
+    float turnVelocity;
+    bool doubleJump = false;
+
+    Vector3 direction;
+    Vector3 jump;
 
     // Start is called before the first frame update
     void Start()
     {
+        if (GetComponent<Animator>())
+        {
+            anim = GetComponent<Animator>();
+            has_anim = true;
+        }
         controller = GetComponent<CharacterController>();
     }
 
@@ -41,6 +48,7 @@ public class ThirdPersonController : MonoBehaviour
         float vertical = Input.GetAxisRaw("Vertical");
         float horizontal = Input.GetAxisRaw("Horizontal");
 
+        //Jump code
         if(controller.isGrounded)
         {
             jump.y = -1.0f;
@@ -57,8 +65,23 @@ public class ThirdPersonController : MonoBehaviour
             doubleJump = false;
         }
 
-        direction = new Vector3(horizontal, 0f, vertical).normalized;
+        //Animation code
+        if(has_anim)
+        {
+            float speed = new Vector2(horizontal, vertical).sqrMagnitude;
 
+            if (speed > 0)
+            {
+                anim.SetFloat("Blend", speed, StartAnimTime, Time.deltaTime);
+            }
+            else
+            {
+                anim.SetFloat("Blend", speed, StopAnimTime, Time.deltaTime);
+            }
+        }
+
+        //Move Code
+        direction = new Vector3(horizontal, 0f, vertical).normalized;
         if (direction.magnitude >= 0.1f)
         {
             float targetAngle = Mathf.Atan2(direction.x, direction.z) * Mathf.Rad2Deg + cam.eulerAngles.y;
