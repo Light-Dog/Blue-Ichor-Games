@@ -332,9 +332,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 10
+  jumpForce: 15
+  gravityScale: 5
   turnSmoother: 0.1
   controller: {fileID: 0}
   cam: {fileID: 805606303}
+  HorizontalAnimSmoothTime: 0.2
+  VerticalAnimTime: 0.2
+  StartAnimTime: 0.3
+  StopAnimTime: 0.15
 --- !u!1 &495224929
 GameObject:
   m_ObjectHideFlags: 0
@@ -697,7 +703,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 805606300}
-  m_LocalRotation: {x: 0.21201204, y: 0.00000001681523, z: -0.0000000036479602, w: 0.9772671}
+  m_LocalRotation: {x: 0.21201204, y: -0.00000001681523, z: 0.0000000036479602, w: 0.9772671}
   m_LocalPosition: {x: -0.52, y: 5, z: -9.48}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -1106,11 +1112,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2271054986323091451, guid: 35f3af2721279d646a93322e0aa178f5, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.000000014680947
+      value: -0.000000002134284
       objectReference: {fileID: 0}
     - target: {fileID: 2271054986323091451, guid: 35f3af2721279d646a93322e0aa178f5, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.000000030740832
+      value: -0.000000027092872
       objectReference: {fileID: 0}
     - target: {fileID: 2271054986392540731, guid: 35f3af2721279d646a93322e0aa178f5, type: 3}
       propertyPath: m_LocalRotation.x
