@@ -1,0 +1,41 @@
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class WeaponMinigun : WeaponBase
+{
+    public Transform firePostion;
+
+    float timer = 0.0f;
+    bool isCool = true;
+
+    public override bool Check()
+    {
+        return isCool;
+    }
+
+    //racsat fire atm
+    public override void Fire()
+    {
+        RaycastHit hit;
+        if(Physics.Raycast(firePostion.position, firePostion.forward, out hit))
+        {
+            print("I hit " + hit.transform);
+            isCool = false;
+            timer = 0.0f;
+        }
+    }
+
+    //cooldown-update
+    void Update()
+    {
+        if(!isCool)
+        {
+            timer += Time.deltaTime;
+            if(timer > cooldown)
+            {
+                isCool = true;
+            }
+        }
+    }
+}
