@@ -39,7 +39,6 @@ public class ThirdPersonController : MonoBehaviour
         controller = GetComponent<CharacterController>();
 
         Debug.Log("Degbug Message");
-        WeaponMenuPrefab.create(transform);
     }
 
     // Update is called once per frame

@@ -17,24 +17,12 @@ public class WheelMenu : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
-
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
-    public void create(Transform player)
-    {
         float stepLength = 360.0f / (float)data.elements.Length;
 
         pieces = new WheelPiece[data.elements.Length];
         for (int i = 0; i < data.elements.Length; i++)
         {
-            pieces[i] = Instantiate(piecePrefeab, player);
+            pieces[i] = Instantiate(piecePrefeab, transform);
 
             pieces[i].transform.localPosition = Vector3.zero;
             pieces[i].transform.localRotation = Quaternion.identity;
@@ -45,5 +33,12 @@ public class WheelMenu : MonoBehaviour
             pieces[i].piece.transform.localRotation = Quaternion.identity;
             pieces[i].piece.color = new Color(1.0f, 1.0f, 1.0f, .5f);
         }
+
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        
     }
 }
