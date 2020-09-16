@@ -26,6 +26,8 @@ public class ThirdPersonController : MonoBehaviour
     Vector3 direction;
     Vector3 jump;
 
+    public WheelMenu WeaponMenuPrefab;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -35,6 +37,9 @@ public class ThirdPersonController : MonoBehaviour
             has_anim = true;
         }
         controller = GetComponent<CharacterController>();
+
+        Debug.Log("Degbug Message");
+        WeaponMenuPrefab.create(transform);
     }
 
     // Update is called once per frame
