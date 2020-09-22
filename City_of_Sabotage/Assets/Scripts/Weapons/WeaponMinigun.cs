@@ -11,7 +11,15 @@ public class WeaponMinigun : WeaponBase
 
     public override bool Check()
     {
-        return isCool;
+        bool ammoCount = true;
+
+        if (ammo < 0)
+        {
+            Debug.Log("Out of Ammo");
+            ammoCount = false;
+        }
+
+        return (isCool && ammoCount);
     }
 
     //racsat fire atm

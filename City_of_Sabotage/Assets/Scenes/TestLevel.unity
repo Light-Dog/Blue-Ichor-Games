@@ -439,7 +439,7 @@ MonoBehaviour:
   weapons:
   - {fileID: 1522437012}
   equipedWeapon: 0
-  fireWeapon: 323
+  WeaponWheel: {fileID: 0}
 --- !u!4 &261167150 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4146643699448325473, guid: bd6ee82c5e06b3f4f86113cbf8261ae1, type: 3}
@@ -3233,7 +3233,7 @@ MonoBehaviour:
   weapons:
   - {fileID: 523717440}
   equipedWeapon: 0
-  fireWeapon: 323
+  WeaponWheel: {fileID: 728307344}
 --- !u!1 &1314671466
 GameObject:
   m_ObjectHideFlags: 0
@@ -3324,7 +3324,7 @@ MonoBehaviour:
   weapons:
   - {fileID: 2009955690}
   equipedWeapon: 0
-  fireWeapon: 323
+  WeaponWheel: {fileID: 0}
 --- !u!4 &1387671724 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4146643699448325473, guid: bd6ee82c5e06b3f4f86113cbf8261ae1, type: 3}
@@ -4348,15 +4348,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2271054986392540731, guid: 35f3af2721279d646a93322e0aa178f5, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.22975294
+      value: 0.22975293
       objectReference: {fileID: 0}
     - target: {fileID: 2271054986392540731, guid: 35f3af2721279d646a93322e0aa178f5, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.000000013085399
+      value: 0.00000002040679
       objectReference: {fileID: 0}
     - target: {fileID: 2271054986392540731, guid: 35f3af2721279d646a93322e0aa178f5, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.000000011553742
+      value: -0.000000019460176
       objectReference: {fileID: 0}
     - target: {fileID: 2271054986392540731, guid: 35f3af2721279d646a93322e0aa178f5, type: 3}
       propertyPath: m_LocalPosition.x
@@ -4364,11 +4364,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2271054987436470786, guid: 35f3af2721279d646a93322e0aa178f5, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.00000002034786
+      value: 0.000000017393926
       objectReference: {fileID: 0}
     - target: {fileID: 2271054987436470786, guid: 35f3af2721279d646a93322e0aa178f5, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.000000011195496
+      value: 0.0000000037218721
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 35f3af2721279d646a93322e0aa178f5, type: 3}
@@ -4449,7 +4449,7 @@ MonoBehaviour:
   weapons:
   - {fileID: 53776137}
   equipedWeapon: 0
-  fireWeapon: 323
+  WeaponWheel: {fileID: 0}
 --- !u!4 &1643178319 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4146643699448325473, guid: bd6ee82c5e06b3f4f86113cbf8261ae1, type: 3}
@@ -4677,7 +4677,7 @@ MonoBehaviour:
   weapons:
   - {fileID: 1925288194}
   equipedWeapon: 0
-  fireWeapon: 323
+  WeaponWheel: {fileID: 0}
 --- !u!4 &1733710526 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4146643699448325473, guid: bd6ee82c5e06b3f4f86113cbf8261ae1, type: 3}
@@ -4839,7 +4839,7 @@ MonoBehaviour:
   weapons:
   - {fileID: 1693806994}
   equipedWeapon: 0
-  fireWeapon: 323
+  WeaponWheel: {fileID: 0}
 --- !u!4 &1756415883 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4146643699448325473, guid: bd6ee82c5e06b3f4f86113cbf8261ae1, type: 3}
