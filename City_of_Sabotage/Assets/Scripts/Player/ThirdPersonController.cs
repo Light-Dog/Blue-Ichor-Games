@@ -26,8 +26,6 @@ public class ThirdPersonController : MonoBehaviour
     Vector3 direction;
     Vector3 jump;
 
-    public WheelMenu WeaponMenuPrefab;
-
     // Start is called before the first frame update
     void Start()
     {
