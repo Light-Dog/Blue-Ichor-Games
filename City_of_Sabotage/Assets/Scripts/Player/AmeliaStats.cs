@@ -15,21 +15,24 @@ public class AmeliaStats : MonoBehaviour
 
     [Header("Weapon Settings")]
     public List<WeaponBase> weapons;
-    public enum weaponType { none, minigun, bombglove, cryogun, windcannon}
+    public enum weaponType { minigun, bombglove, cryogun, windcannon}
     public int equipedWeapon;
-    public KeyCode fireWeapon;
+    public GameObject WeaponWheel;
 
     // Start is called before the first frame update
     void Start()
     {
         slam = false;
         equipedWeapon = (int) weaponType.minigun;
+        WeaponWheel.SetActive(false);
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKey(fireWeapon))
+        weaponSelect();
+
+        if (Input.GetButton("UseEquipment"))
             UseWeapon();
     }
 
@@ -37,13 +40,26 @@ public class AmeliaStats : MonoBehaviour
     {
         //preform weapon check & if passed fire weapon
         //fire weapon
-        if(equipedWeapon !=  (int)weaponType.none)
+        if(equipedWeapon == (int)weaponType.minigun)
         {
-            if(weapons[0].Check())
+            if(weapons[equipedWeapon].Check())
             {
-                weapons[0].Fire();
-                weapons[0].DecrementAmmo();
+                weapons[equipedWeapon].Fire();
+                weapons[equipedWeapon].DecrementAmmo();
             }
+        }
+    }
+
+    void weaponSelect()
+    {
+        if (Input.GetButton("WeaponSelect"))
+        {
+            WeaponWheel.SetActive(true);
+        }
+        else
+        {
+            equipedWeapon = WeaponWheel.GetComponent<MenuScript>().GetCurrentWeapon();
+            WeaponWheel.SetActive(false);
         }
     }
 }

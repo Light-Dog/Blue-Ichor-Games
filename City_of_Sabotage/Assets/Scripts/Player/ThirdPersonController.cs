@@ -35,14 +35,15 @@ public class ThirdPersonController : MonoBehaviour
             has_anim = true;
         }
         controller = GetComponent<CharacterController>();
-
-        Debug.Log("Degbug Message");
+        //Debug.Log("Degbug Message");
+        
     }
 
     // Update is called once per frame
     void Update()
     {
         playerMovement();
+        
     }
 
     void playerMovement()

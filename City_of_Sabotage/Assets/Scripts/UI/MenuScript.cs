@@ -63,4 +63,9 @@ public class MenuScript : MonoBehaviour
         }
         
     }
+
+    public int GetCurrentWeapon()
+    {
+        return selection;
+    }
 }
