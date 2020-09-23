@@ -22,6 +22,7 @@ public class ThirdPersonController : MonoBehaviour
 
     float turnVelocity;
     bool doubleJump = false;
+    bool firstJump = true;
 
     Vector3 direction;
     Vector3 jump;
@@ -52,23 +53,28 @@ public class ThirdPersonController : MonoBehaviour
         float horizontal = Input.GetAxisRaw("Horizontal");
 
         //Jump code
-        if(controller.isGrounded)
+        if(Input.GetButtonDown("Jump"))
         {
-            jump.y = -1.0f;
-            anim.SetTrigger("Grounded");
-
-            if(Input.GetButtonDown("Jump"))
+            if(firstJump)
             {
                 anim.SetTrigger("IsJumping");
                 jump.y = jumpForce;
                 doubleJump = true;
+                firstJump = false;
+            }
+            else if(doubleJump)
+            {
+                jump.y = jumpForce;
+                doubleJump = false;
             }
         }
-        else if(Input.GetButtonDown("Jump") && doubleJump)
+        else if (controller.isGrounded)
         {
-            jump.y = jumpForce;
-            doubleJump = false;
+            jump.y = -1.0f;
+            anim.SetTrigger("Grounded");
+            firstJump = true;
         }
+
 
         //Animation code
         if(has_anim)
