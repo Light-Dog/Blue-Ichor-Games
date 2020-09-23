@@ -18,6 +18,8 @@ public class AmeliaStats : MonoBehaviour
     public enum weaponType { minigun, bombglove, cryogun, windcannon}
     public int equipedWeapon;
     public GameObject WeaponWheel;
+    public float slowScale = 0.05f;
+    bool slow = false;
 
     // Start is called before the first frame update
     void Start()
@@ -55,11 +57,25 @@ public class AmeliaStats : MonoBehaviour
         if (Input.GetButton("WeaponSelect"))
         {
             WeaponWheel.SetActive(true);
+
+            Time.timeScale = slowScale;
+            Time.fixedDeltaTime = Time.timeScale * .02f;
+
         }
         else
         {
             equipedWeapon = WeaponWheel.GetComponent<MenuScript>().GetCurrentWeapon();
             WeaponWheel.SetActive(false);
+
+            Time.timeScale = 1;
+            Time.fixedDeltaTime = Time.timeScale * .02f;
         }
+    }
+
+    void Slowmotion()
+    {
+        Time.timeScale = slowScale;
+        Time.fixedDeltaTime = Time.timeScale * .02f;
+        slow = true;
     }
 }
