@@ -7,6 +7,7 @@ public class AmeliaStats : MonoBehaviour
     [Header("Health Settings")]
     public int health;
     public int healthPerPickup;
+    public HealthBar healthbar;
 
     [Header("Hammer Settigns")]
     public int meleeDamage;
@@ -27,6 +28,7 @@ public class AmeliaStats : MonoBehaviour
         slam = false;
         equipedWeapon = (int) weaponType.minigun;
         WeaponWheel.SetActive(false);
+        healthbar.SetMaxHealth(health);
     }
 
     // Update is called once per frame
@@ -36,6 +38,9 @@ public class AmeliaStats : MonoBehaviour
 
         if (Input.GetButton("UseEquipment"))
             UseWeapon();
+
+        if (Input.GetKeyDown(KeyCode.E))
+            healthbar.SetHealth(--health);
     }
 
     void UseWeapon()
