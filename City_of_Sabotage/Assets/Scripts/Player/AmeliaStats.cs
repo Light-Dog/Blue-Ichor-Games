@@ -13,6 +13,7 @@ public class AmeliaStats : MonoBehaviour
     public int meleeDamage;
     public float knockbackDistance;
     bool slam;
+    public GameObject hammer;
 
     [Header("Weapon Settings")]
     public List<WeaponBase> weapons;
@@ -29,6 +30,11 @@ public class AmeliaStats : MonoBehaviour
         equipedWeapon = (int) weaponType.minigun;
         WeaponWheel.SetActive(false);
         healthbar.SetMaxHealth(health);
+
+        foreach(WeaponBase weapon in weapons)
+        {
+            weapon.gameObject.SetActive(false);
+        }
     }
 
     // Update is called once per frame
@@ -39,6 +45,13 @@ public class AmeliaStats : MonoBehaviour
         if (Input.GetButton("UseEquipment"))
             UseWeapon();
 
+        if(Input.GetMouseButtonDown(1))
+        {
+            Debug.Log("HAMMER TIME");
+            weapons[equipedWeapon].gameObject.SetActive(false);
+            hammer.SetActive(true);
+        }
+
         if (Input.GetKeyDown(KeyCode.E))
             healthbar.SetHealth(--health);
     }
@@ -47,14 +60,15 @@ public class AmeliaStats : MonoBehaviour
     {
         //preform weapon check & if passed fire weapon
         //fire weapon
-        if(equipedWeapon == (int)weaponType.minigun)
+        weapons[equipedWeapon].gameObject.SetActive(true);
+        hammer.SetActive(false);
+
+        if (weapons[equipedWeapon].Check())
         {
-            if(weapons[equipedWeapon].Check())
-            {
-                weapons[equipedWeapon].Fire();
-                weapons[equipedWeapon].DecrementAmmo();
-            }
+            weapons[equipedWeapon].Fire();
+            weapons[equipedWeapon].DecrementAmmo();
         }
+
     }
 
     void weaponSelect()
@@ -69,7 +83,9 @@ public class AmeliaStats : MonoBehaviour
         }
         else
         {
+            //weapons[equipedWeapon].gameObject.SetActive(false);
             equipedWeapon = WeaponWheel.GetComponent<MenuScript>().GetCurrentWeapon();
+            //weapons[equipedWeapon].gameObject.SetActive(true);
             WeaponWheel.SetActive(false);
 
             Time.timeScale = 1;

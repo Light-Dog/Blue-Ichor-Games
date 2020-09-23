@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class WeaponMinigun : WeaponBase
+public class WeaponWindCannon : WeaponBase
 {
     public Transform firePostion;
 
@@ -15,7 +15,7 @@ public class WeaponMinigun : WeaponBase
 
         if (ammo < 0)
         {
-            Debug.Log(" Minigun Out of Ammo");
+            Debug.Log("Wind Cannon Out of Ammo");
             ammoCount = false;
         }
 
@@ -26,7 +26,7 @@ public class WeaponMinigun : WeaponBase
     public override void Fire()
     {
         RaycastHit hit;
-        if(Physics.Raycast(firePostion.position, firePostion.forward, out hit))
+        if (Physics.Raycast(firePostion.position, firePostion.forward, out hit))
         {
             print("I hit " + hit.transform);
             isCool = false;
@@ -37,10 +37,10 @@ public class WeaponMinigun : WeaponBase
     //cooldown-update
     void Update()
     {
-        if(!isCool)
+        if (!isCool)
         {
             timer += Time.deltaTime;
-            if(timer > cooldown)
+            if (timer > cooldown)
             {
                 isCool = true;
             }
