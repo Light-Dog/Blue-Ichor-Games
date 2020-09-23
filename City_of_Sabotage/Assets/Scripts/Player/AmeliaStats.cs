@@ -12,7 +12,7 @@ public class AmeliaStats : MonoBehaviour
     [Header("Hammer Settigns")]
     public int meleeDamage;
     public float knockbackDistance;
-    bool slam;
+    bool slam = false;
     public GameObject hammer;
 
     [Header("Weapon Settings")]
@@ -22,12 +22,13 @@ public class AmeliaStats : MonoBehaviour
     public GameObject WeaponWheel;
     public float slowScale = 0.05f;
     bool slow = false;
+    bool weaponChange = false;
 
     // Start is called before the first frame update
     void Start()
     {
-        slam = false;
         equipedWeapon = (int) weaponType.minigun;
+
         WeaponWheel.SetActive(false);
         healthbar.SetMaxHealth(health);
 
@@ -40,11 +41,14 @@ public class AmeliaStats : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //q
         weaponSelect();
 
+        //Left Click
         if (Input.GetButton("UseEquipment"))
             UseWeapon();
 
+        //Right Click
         if(Input.GetMouseButtonDown(1))
         {
             Debug.Log("HAMMER TIME");
@@ -73,23 +77,28 @@ public class AmeliaStats : MonoBehaviour
 
     void weaponSelect()
     {
+
         if (Input.GetButton("WeaponSelect"))
         {
             WeaponWheel.SetActive(true);
+            weapons[equipedWeapon].gameObject.SetActive(false);
+            hammer.SetActive(false);
 
             Time.timeScale = slowScale;
             Time.fixedDeltaTime = Time.timeScale * .02f;
 
+            weaponChange = true;
         }
-        else
+        else if (weaponChange)
         {
-            //weapons[equipedWeapon].gameObject.SetActive(false);
-            equipedWeapon = WeaponWheel.GetComponent<MenuScript>().GetCurrentWeapon();
-            //weapons[equipedWeapon].gameObject.SetActive(true);
             WeaponWheel.SetActive(false);
+
+            equipedWeapon = WeaponWheel.GetComponent<MenuScript>().GetCurrentWeapon();
+            weapons[equipedWeapon].gameObject.SetActive(true);
 
             Time.timeScale = 1;
             Time.fixedDeltaTime = Time.timeScale * .02f;
+            weaponChange = false;
         }
     }
 
