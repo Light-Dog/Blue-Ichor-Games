@@ -20,6 +20,10 @@ public class ThirdPersonController : MonoBehaviour
     public CharacterController controller;
     public Transform cam;
 
+    public GameObject StrafeCam;
+    public GameObject ActionCam;
+    float mouseX = 0f;
+
     float turnVelocity;
     bool doubleJump = false;
     bool firstJump = true;
@@ -37,6 +41,8 @@ public class ThirdPersonController : MonoBehaviour
         }
         controller = GetComponent<CharacterController>();
         //Debug.Log("Degbug Message");
+
+        StrafeCam.active = false;
         
     }
 
@@ -57,7 +63,7 @@ public class ThirdPersonController : MonoBehaviour
         {
             if(firstJump)
             {
-                anim.SetTrigger("IsJumping");
+                //anim.SetTrigger("IsJumping");
                 jump.y = jumpForce;
                 doubleJump = true;
                 firstJump = false;
@@ -71,7 +77,7 @@ public class ThirdPersonController : MonoBehaviour
         else if (controller.isGrounded)
         {
             jump.y = -1.0f;
-            anim.SetTrigger("Grounded");
+            //anim.SetTrigger("Grounded");
             firstJump = true;
         }
 
@@ -91,6 +97,29 @@ public class ThirdPersonController : MonoBehaviour
             }
         }
 
+        if(Input.GetButtonDown("StrafeMode"))
+        {
+            Debug.Log("Strafe Mode ON");
+            //switch cameras
+            StrafeCam.active = true;
+            ActionCam.active = false;
+
+            //enable UI element for aiming
+        }
+        if(Input.GetButtonUp("StrafeMode"))
+        {
+            Debug.Log("Strafe Mode OFF");
+            StrafeCam.active = false;
+            ActionCam.active = true;
+        }
+
+        if(Input.GetButton("StrafeMode"))
+        {
+            mouseX += Input.GetAxis("Mouse X") * 1f;
+
+            transform.rotation = Quaternion.Euler(0f, mouseX, 0f);
+        }
+
         //Move Code
         direction = new Vector3(horizontal, 0f, vertical).normalized;
         if (direction.magnitude >= 0.1f)
@@ -98,7 +127,8 @@ public class ThirdPersonController : MonoBehaviour
             float targetAngle = Mathf.Atan2(direction.x, direction.z) * Mathf.Rad2Deg + cam.eulerAngles.y;
             float angle = Mathf.SmoothDampAngle(transform.eulerAngles.y, targetAngle, ref turnVelocity, turnSmoother);
             //rotate the player based on input
-            transform.rotation = Quaternion.Euler(0f, angle, 0f);
+            if(!Input.GetButton("StrafeMode"))
+                transform.rotation = Quaternion.Euler(0f, angle, 0f);
 
             Vector3 moveDir = Quaternion.Euler(0f, targetAngle, 0f) * Vector3.forward;
             moveDir = moveDir.normalized * moveSpeed;
