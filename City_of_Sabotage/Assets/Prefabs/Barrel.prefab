@@ -497,6 +497,7 @@ GameObject:
   - component: {fileID: 7463656059109134080}
   - component: {fileID: 8459346014969360720}
   - component: {fileID: 6833077350821249644}
+  - component: {fileID: 9189424907890827707}
   m_Layer: 0
   m_Name: pCylinder1
   m_TagString: Untagged
@@ -567,6 +568,20 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &9189424907890827707
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6618587078754386186}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -5076798556035486163, guid: 204c0c893b77fc142a1a2e555dd28a19, type: 3}
 --- !u!1 &7164315112448790584
 GameObject:
   m_ObjectHideFlags: 0
@@ -576,7 +591,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7504987157032422018}
-  - component: {fileID: 4777549795945465112}
   m_Layer: 0
   m_Name: Barrel
   m_TagString: Untagged
@@ -606,20 +620,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!64 &4777549795945465112
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7164315112448790584}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 0}
 --- !u!1 &8881381683106559977
 GameObject:
   m_ObjectHideFlags: 0
@@ -631,6 +631,7 @@ GameObject:
   - component: {fileID: 2873159341851661523}
   - component: {fileID: 4108944088423248790}
   - component: {fileID: 1564364405658173589}
+  - component: {fileID: 5749221181344856658}
   m_Layer: 0
   m_Name: pCylinder2
   m_TagString: Untagged
@@ -701,3 +702,17 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &5749221181344856658
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8881381683106559977}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 6099800089077584851, guid: 204c0c893b77fc142a1a2e555dd28a19, type: 3}
