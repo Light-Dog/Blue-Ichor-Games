@@ -28,7 +28,14 @@ public class WeaponMinigun : WeaponBase
         RaycastHit hit;
         if(Physics.Raycast(firePostion.position, firePostion.forward, out hit))
         {
-            print("I hit " + hit.transform);
+            print("I hit " + hit.transform.name);
+
+            Destructable box = hit.transform.GetComponent<Destructable>();
+            if(box != null)
+            {
+                box.TakeDamage(damage);
+            }
+
             isCool = false;
             timer = 0.0f;
         }

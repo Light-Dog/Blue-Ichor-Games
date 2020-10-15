@@ -80,6 +80,8 @@ public class AmeliaStats : MonoBehaviour
 
         if (Input.GetButton("WeaponSelect"))
         {
+            Cursor.lockState = CursorLockMode.Confined;
+
             WeaponWheel.SetActive(true);
             weapons[equipedWeapon].gameObject.SetActive(false);
             hammer.SetActive(false);
@@ -99,6 +101,8 @@ public class AmeliaStats : MonoBehaviour
             Time.timeScale = 1;
             Time.fixedDeltaTime = Time.timeScale * .02f;
             weaponChange = false;
+
+            Cursor.lockState = CursorLockMode.Locked;
         }
     }
 

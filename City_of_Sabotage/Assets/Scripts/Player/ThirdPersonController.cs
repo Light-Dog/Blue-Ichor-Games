@@ -43,7 +43,9 @@ public class ThirdPersonController : MonoBehaviour
         //Debug.Log("Degbug Message");
 
         StrafeCam.active = false;
+
         
+        Cursor.lockState = CursorLockMode.Locked;
     }
 
     // Update is called once per frame
