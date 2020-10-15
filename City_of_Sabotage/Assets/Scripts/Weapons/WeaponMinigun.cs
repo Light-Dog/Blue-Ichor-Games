@@ -35,10 +35,10 @@ public class WeaponMinigun : WeaponBase
             {
                 box.TakeDamage(damage);
             }
-
-            isCool = false;
-            timer = 0.0f;
         }
+
+        isCool = false;
+        timer = 0.0f;
     }
 
     //cooldown-update
