@@ -58,6 +58,12 @@ public class AmeliaStats : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.E))
             healthbar.SetHealth(--health);
+
+        if (Input.GetKeyDown(KeyCode.Y))
+        {
+            print("RELOADED");
+            weapons[equipedWeapon].ammo = weapons[equipedWeapon].maxAmmo;
+        }
     }
 
     void UseWeapon()
