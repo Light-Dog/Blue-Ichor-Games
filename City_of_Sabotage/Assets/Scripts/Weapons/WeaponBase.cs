@@ -8,6 +8,7 @@ public class WeaponBase : MonoBehaviour
     public int maxAmmo;
     public float cooldown;
     public float damage;
+    public ParticleSystem muzzleParticle;
 
     //to display the UI to aim
     public virtual void Aim()
