@@ -24,13 +24,19 @@ public class TrashTrackMove : MonoBehaviour
     {
         target = player.transform;
         float step = speed * Time.deltaTime; // calculate distance to move
+
+        float y_trans = transform.position.y;
         transform.position = Vector3.MoveTowards(transform.position, target.position, step);
+        transform.position = new Vector3(transform.position.x, y_trans, transform.position.z);
+        
 
         //move towards
+        /*
         if (transform.position.y < target.position.y)
         {
             transform.position = new Vector3(transform.position.x, target.position.y, transform.position.z);
         }
+        */
 
         //turn facing
         Quaternion targetRotation = Quaternion.LookRotation(target.position - transform.position);
