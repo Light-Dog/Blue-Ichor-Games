@@ -18,7 +18,9 @@ public class Destructable : MonoBehaviour
 
         if (health <= 0f)
         {
-            Instantiate(destroyed, transform.position, transform.rotation);
+            if(destroyed != null)
+                Instantiate(destroyed, transform.position, transform.rotation);
+
             Destroy(gameObject);
         }
     }
