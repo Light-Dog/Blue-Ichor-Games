@@ -8,6 +8,7 @@ public class WeaponMinigun : WeaponBase
     public Transform player;
     public GameObject impactEffect;
     public GameObject bullet;
+    public AudioSource sfx;
 
     float timer = 0.0f;
     bool isCool = true;
@@ -50,6 +51,8 @@ public class WeaponMinigun : WeaponBase
         //middle.y += 25f;
         GameObject shot = Instantiate(bullet, firePostion.position, firePostion.rotation);
         shot.GetComponent<BulletScript>().Setup(player.forward);
+
+        sfx.Play();
 
         isCool = false;
         timer = 0.0f;
