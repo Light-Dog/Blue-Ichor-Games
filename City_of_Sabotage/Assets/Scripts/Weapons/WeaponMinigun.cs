@@ -5,7 +5,9 @@ using UnityEngine;
 public class WeaponMinigun : WeaponBase
 {
     public Transform firePostion;
+    public Transform player;
     public GameObject impactEffect;
+    public GameObject bullet;
 
     float timer = 0.0f;
     bool isCool = true;
@@ -26,8 +28,9 @@ public class WeaponMinigun : WeaponBase
     //racsat fire atm
     public override void Fire()
     {
-        muzzleParticle.Play();
+        //muzzleParticle.Play();
 
+        /*
         RaycastHit hit;
         if(Physics.Raycast(firePostion.position, firePostion.forward, out hit))
         {
@@ -41,6 +44,12 @@ public class WeaponMinigun : WeaponBase
 
             Instantiate(impactEffect, hit.point, Quaternion.LookRotation(hit.normal));
         }
+        */
+
+        Vector3 middle = firePostion.position;
+        //middle.y += 25f;
+        GameObject shot = Instantiate(bullet, firePostion.position, firePostion.rotation);
+        shot.GetComponent<BulletScript>().Setup(player.forward);
 
         isCool = false;
         timer = 0.0f;
