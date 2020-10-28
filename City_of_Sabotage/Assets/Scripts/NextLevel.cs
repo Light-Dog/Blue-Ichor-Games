@@ -9,7 +9,7 @@ public class NextLevel : MonoBehaviour
         //if (collision.gameObject.GetComponent<BoxCollider>())
         {
             //Debug.Log("yoooo");
-            SceneManager.LoadScene(1);
+            SceneManager.LoadScene(2);
         }
     }
 }
