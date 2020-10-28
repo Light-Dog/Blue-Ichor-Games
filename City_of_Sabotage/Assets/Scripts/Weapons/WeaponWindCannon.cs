@@ -5,6 +5,7 @@ using UnityEngine;
 public class WeaponWindCannon : WeaponBase
 {
     public Transform firePostion;
+    public GameObject coneOfSilence;
 
     float timer = 0.0f;
     bool isCool = true;
@@ -25,13 +26,10 @@ public class WeaponWindCannon : WeaponBase
     //racsat fire atm
     public override void Fire()
     {
-        RaycastHit hit;
-        if (Physics.Raycast(firePostion.position, firePostion.forward, out hit))
-        {
-            print("I hit " + hit.transform);
-            isCool = false;
-            timer = 0.0f;
-        }
+        coneOfSilence.SetActive(true);
+
+        isCool = false;
+        timer = 0.0f;
     }
 
     //cooldown-update
@@ -43,6 +41,7 @@ public class WeaponWindCannon : WeaponBase
             if (timer > cooldown)
             {
                 isCool = true;
+                coneOfSilence.SetActive(false);
             }
         }
     }
