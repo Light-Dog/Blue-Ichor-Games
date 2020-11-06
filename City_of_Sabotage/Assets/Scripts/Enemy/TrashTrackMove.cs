@@ -34,4 +34,14 @@ public class TrashTrackMove : MonoBehaviour
         float str = Mathf.Min(turnSpeed * Time.deltaTime);
         transform.rotation = Quaternion.Lerp(transform.rotation, targetRotation, str);
     }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        AmeliaStats player = other.GetComponent<AmeliaStats>();
+        if (player != null)
+        {
+            print("Hit Player!!!!");
+            player.TakeDamage(1);
+        }
+    }
 }
