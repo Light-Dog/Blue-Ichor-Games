@@ -6,17 +6,17 @@ public class TrashTrackMove : MonoBehaviour
 {
     public GameObject player;
     public Transform target;
+
     public float trackRange = 20f;
     public float speed = 3.0f;
     public float turnSpeed = 3.0f;
-    //public Rigidbody rb;
+
 
     // Start is called before the first frame update
     void Start()
     {
         player = FindObjectOfType<AmeliaStats>().gameObject;
         target = player.transform;
-        //rb = gameObject.GetComponent<Rigidbody>();
     }
 
     // Update is called once per frame
