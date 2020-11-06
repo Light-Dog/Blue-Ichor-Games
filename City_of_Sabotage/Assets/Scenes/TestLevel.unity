@@ -2050,6 +2050,38 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d423a2ad7a5eb874ebe68a79c7d2d85e, type: 3}
+--- !u!1 &358612160 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 928217598983502428, guid: d423a2ad7a5eb874ebe68a79c7d2d85e, type: 3}
+  m_PrefabInstance: {fileID: 2043603098}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &358612161
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 358612160}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9b304f3221de959439985e56a368c4b3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  key: 1
+  numUses: 1
+--- !u!135 &358612162
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 358612160}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.5
+  m_Center: {x: 0, y: 0.7, z: 0}
 --- !u!1 &370494062
 GameObject:
   m_ObjectHideFlags: 0
@@ -9144,6 +9176,39 @@ MonoBehaviour:
   - {fileID: 1417343634}
   - {fileID: 1156779445}
   - {fileID: 577116500}
+--- !u!1 &738241691 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 1a88e4c1131d6e64da0d2fda8064ac57, type: 3}
+  m_PrefabInstance: {fileID: 1615395960}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &738241693
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 738241691}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9b304f3221de959439985e56a368c4b3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  key: 1
+  numUses: 1
+--- !u!136 &738241694
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 738241691}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  m_Radius: 0.5309383
+  m_Height: 2.668176
+  m_Direction: 1
+  m_Center: {x: -0.0008238275, y: 0.24430501, z: 0.023994325}
 --- !u!1 &746686635
 GameObject:
   m_ObjectHideFlags: 0
@@ -10370,7 +10435,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 805606300}
-  m_LocalRotation: {x: 0.07981381, y: -0.030779235, z: 0.002465668, w: 0.99633145}
+  m_LocalRotation: {x: 0.07979812, y: -0.036573432, z: 0.0029298274, w: 0.9961356}
   m_LocalPosition: {x: 0.030000018, y: 2.05, z: -6.9900002}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -10939,7 +11004,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 973755259}
-  m_LocalRotation: {x: 0.07981381, y: -0.030779235, z: 0.002465668, w: 0.99633145}
+  m_LocalRotation: {x: 0.07979812, y: -0.036573432, z: 0.0029298274, w: 0.9961356}
   m_LocalPosition: {x: 0.030000018, y: 2.05, z: -6.9900002}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -15679,6 +15744,8 @@ MonoBehaviour:
   equipedWeapon: 0
   WeaponWheel: {fileID: 728307344}
   slowScale: 0.05
+  money: 0
+  inventory: []
 --- !u!65 &1206145517
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -17181,11 +17248,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2271054987436470786, guid: 35f3af2721279d646a93322e0aa178f5, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.000000017393926
+      value: -0.00000002034786
       objectReference: {fileID: 0}
     - target: {fileID: 2271054987436470786, guid: 35f3af2721279d646a93322e0aa178f5, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.0000000037218721
+      value: 0.000000011195496
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 35f3af2721279d646a93322e0aa178f5, type: 3}
@@ -17862,7 +17929,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 1a88e4c1131d6e64da0d2fda8064ac57, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2.21
+      value: 0.661
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 1a88e4c1131d6e64da0d2fda8064ac57, type: 3}
       propertyPath: m_LocalPosition.z
@@ -17899,6 +17966,18 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: 1a88e4c1131d6e64da0d2fda8064ac57, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 1a88e4c1131d6e64da0d2fda8064ac57, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.66107
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 1a88e4c1131d6e64da0d2fda8064ac57, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.66107
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 1a88e4c1131d6e64da0d2fda8064ac57, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.66107
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 1a88e4c1131d6e64da0d2fda8064ac57, type: 3}
       propertyPath: m_Name
@@ -18265,6 +18344,8 @@ MonoBehaviour:
   equipedWeapon: 0
   WeaponWheel: {fileID: 0}
   slowScale: 0.05
+  money: 0
+  inventory: []
 --- !u!4 &1756415883 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4146643699448325473, guid: bd6ee82c5e06b3f4f86113cbf8261ae1, type: 3}
@@ -20930,7 +21011,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 928217598983502428, guid: d423a2ad7a5eb874ebe68a79c7d2d85e, type: 3}
       propertyPath: m_Name
-      value: LootTest_lv1
+      value: LootTest_lv1 (Key)
       objectReference: {fileID: 0}
     - target: {fileID: 928217598984588466, guid: d423a2ad7a5eb874ebe68a79c7d2d85e, type: 3}
       propertyPath: m_LocalScale.x
