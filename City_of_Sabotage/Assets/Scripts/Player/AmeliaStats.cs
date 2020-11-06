@@ -17,7 +17,7 @@ public class AmeliaStats : MonoBehaviour
 
     [Header("Weapon Settings")]
     public List<WeaponBase> weapons;
-    public enum weaponType { minigun, bombglove, cryogun, windcannon}
+    public enum weaponType { minigun, bombglove, cryogun, windcannon }
     public int equipedWeapon;
     public GameObject WeaponWheel;
     public float slowScale = 0.05f;
@@ -27,12 +27,12 @@ public class AmeliaStats : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        equipedWeapon = (int) weaponType.minigun;
+        equipedWeapon = (int)weaponType.minigun;
 
         WeaponWheel.SetActive(false);
         healthbar.SetMaxHealth(health);
 
-        foreach(WeaponBase weapon in weapons)
+        foreach (WeaponBase weapon in weapons)
         {
             weapon.gameObject.SetActive(false);
         }
@@ -49,7 +49,7 @@ public class AmeliaStats : MonoBehaviour
             UseWeapon();
 
         //Right Click
-        if(Input.GetMouseButtonDown(1))
+        if (Input.GetMouseButtonDown(1))
         {
             Debug.Log("HAMMER TIME");
             weapons[equipedWeapon].gameObject.SetActive(false);
@@ -117,5 +117,16 @@ public class AmeliaStats : MonoBehaviour
         Time.timeScale = slowScale;
         Time.fixedDeltaTime = Time.timeScale * .02f;
         slow = true;
+    }
+
+    public void TakeDamage(int damage)
+    {
+        health = health - damage;
+
+        if(health <= 0)
+        {
+            //lose
+            print("YOU LOSE SUCKER!");
+        }
     }
 }

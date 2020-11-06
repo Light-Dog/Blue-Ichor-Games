@@ -13,6 +13,16 @@ public class BulletScript : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        AmeliaStats player = other.GetComponent<AmeliaStats>();
+        if (player != null)
+        {
+            print("Hit Player!!!!");
+            player.TakeDamage(1);
+            Destroy(gameObject);
+            return;
+        }
+
+
         Destructable target = other.GetComponent<Destructable>();
         print("Hit something:" + target.name);
 
