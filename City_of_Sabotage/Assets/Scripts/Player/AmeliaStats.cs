@@ -24,6 +24,10 @@ public class AmeliaStats : MonoBehaviour
     bool slow = false;
     bool weaponChange = false;
 
+    [Header("Pickups Settings")]
+    public int money = 0;
+    public List<GameObject> inventory;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -41,14 +45,14 @@ public class AmeliaStats : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //q
+        //Q - Weapon Select
         weaponSelect();
 
-        //Left Click
+        //Left Click - Use Equipment
         if (Input.GetButton("UseEquipment"))
             UseWeapon();
 
-        //Right Click
+        //Right Click - Toggle Strafe
         if (Input.GetMouseButtonDown(1))
         {
             Debug.Log("HAMMER TIME");
@@ -56,9 +60,11 @@ public class AmeliaStats : MonoBehaviour
             hammer.SetActive(true);
         }
 
-        if (Input.GetKeyDown(KeyCode.E))
-            healthbar.SetHealth(--health);
+        //E - Use Item
+        
 
+
+        // Y - Reload
         if (Input.GetKeyDown(KeyCode.Y))
         {
             print("RELOADED");
@@ -119,14 +125,29 @@ public class AmeliaStats : MonoBehaviour
         slow = true;
     }
 
+    //-----------------PUBLIC FUNCTIONS--------------------------------------------------------
+
     public void TakeDamage(int damage)
     {
         health = health - damage;
+        healthbar.SetHealth(health);
 
         if(health <= 0)
         {
             //lose
             print("YOU LOSE SUCKER!");
         }
+    }
+
+    public void GearCollect(int value)
+    {
+        money += value;
+        print("Current Amount: " + money);
+    }
+
+    public void ItemCollect(GameObject item)
+    {
+        inventory.Add(item);
+        print("Item added: " + item.name);
     }
 }
